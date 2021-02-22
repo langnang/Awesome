@@ -25,6 +25,7 @@ const mutations = {
 		state.origin = origin;
 	},
 	SET_TREE: (state, tree) => {
+		console.log(tree);
 		state.tree = tree;
 	},
 	SET_LIST: (state, list) => {
@@ -50,9 +51,11 @@ const actions = {
 					total[spt[0]] = spt[1];
 					return total;
 				}, {});
-				// console.log(config);
-				v.config = config;
-				return v;
+				console.log(v.name.split('>>'));
+				return {
+					...v,
+					...config,
+				};
 			});
 			commit('SET_ORIGIN', list);
 			console.log(list);
@@ -89,6 +92,7 @@ const actions = {
 							let name_spt = v.name.split('>>');
 							return {
 								...v,
+								label: v.name.split('>>').pop(),
 								...options,
 								// label: name_spt[name_spt.length - 1],
 								// key: "",

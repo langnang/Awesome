@@ -37,6 +37,7 @@ const tree = (origin, depth, array = []) => {
 			// 初始化父元素
 			let parent = {
 				name: value.parent,
+				label: value.parent.split('>>').pop(),
 				parent: value.parent.substr(0, value.parent.lastIndexOf('>>')),
 				depth: value.depth - 1,
 				children: [],
