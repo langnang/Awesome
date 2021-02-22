@@ -18,7 +18,7 @@ const actions = {
 				return {
 					node_id: v.node_id,
 					title: v.title,
-					params: iniToJSON(v.body),
+					...iniToJSON(v.body),
 				};
 			});
 			console.log(issues);
