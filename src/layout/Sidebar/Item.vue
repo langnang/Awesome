@@ -1,18 +1,17 @@
 <template>
-	<span>
-		<component :is="item.children ? 'el-submenu' : 'el-menu-item'" :index="item.name" v-for="item in tree" :key="item.name">
-			<template slot="title">
-				<i :class="item.icon" class="el-icon-collection-tag"></i>
-				<span>{{ item.label }}</span>
-			</template>
-			<SidebarItem :tree="item.children" :depth="depth + 1" />
-		</component>
-	</span>
+	<component :is="item.children ? 'el-submenu' : 'el-menu-item'" :index="item.name">
+		<template slot="title">
+			<i :class="item.icon" class="el-icon-collection-tag"></i>
+			<span slot="title">{{ item.label }}</span>
+		</template>
+		<SidebarItem v-for="subItem in item.children" :key="subItem.name" :item="subItem" />
+	</component>
 </template>
 <script>
 	export default {
 		name: 'SidebarItem',
 		props: {
+			item: {},
 			tree: {},
 			depth: {
 				type: Number,

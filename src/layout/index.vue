@@ -3,7 +3,7 @@
 		<Sidebar />
 		<el-container>
 			<el-header class="app-header">
-				<i class="el-icon-s-fold" style="font-size:38px;line-height:60px"></i>
+				<i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'" style="font-size:38px;line-height:60px" @click="$store.dispatch('app/toggleSidebar')"></i>
 			</el-header>
 			<el-scrollbar style="height:calc(100vh - 60px);">
 				<el-container style="min-height:calc(100vh - 60px);">
@@ -18,11 +18,15 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex';
 	import Sidebar from './Sidebar';
 	export default {
 		name: 'Layout',
 		components: {
 			Sidebar,
+		},
+		computed: {
+			...mapGetters(['isCollapse']),
 		},
 	};
 </script>

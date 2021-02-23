@@ -1,9 +1,9 @@
 <template>
-	<el-aside class="app-aside" width="220px">
+	<el-aside class="app-aside" :width="isCollapse ? '70px' : '220px'">
 		<p class="aside-title" style="">Awesome</p>
 		<el-scrollbar>
-			<el-menu class="aside-menu" default-active="2" background-color="#2c2e2f" text-color="#fff" active-text-color="#ffd04b" :router="true">
-				<SidebarItem :tree="labels_tree" />
+			<el-menu class="aside-menu" default-active="2" background-color="#2c2e2f" text-color="#fff" active-text-color="#ffd04b" :router="true" :collapse="isCollapse">
+				<SidebarItem v-for="item in labels_tree" :key="item.name" :item="item" />
 			</el-menu>
 		</el-scrollbar>
 	</el-aside>
@@ -17,7 +17,7 @@
 			SidebarItem,
 		},
 		computed: {
-			...mapGetters(['labels_tree']),
+			...mapGetters(['labels_tree', 'isCollapse']),
 		},
 		mounted() {
 			// this.$store.dispatch('label/getList');

@@ -1,6 +1,6 @@
 module.exports = {
 	title: 'awesome',
 	name: '',
-	theme: 'detault',
+	theme: 'default',
 	isCollapse: false,
 };
