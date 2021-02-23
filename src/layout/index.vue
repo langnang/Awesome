@@ -1,7 +1,7 @@
 <template>
 	<el-container>
 		<Sidebar />
-		<el-container>
+		<el-container class="app-container">
 			<el-header class="app-header">
 				<i
 					:class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
@@ -37,9 +37,7 @@
 		},
 		data() {
 			return {
-				form: {
-					radio1: '上海',
-				},
+				form: {},
 			};
 		},
 		computed: {
