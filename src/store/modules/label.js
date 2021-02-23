@@ -3,6 +3,7 @@ import { toTree } from '@/utils/toTree';
 import { isJSONString } from '@/utils/isJSONString';
 import { iniToJSON } from '@/utils/iniToJSON';
 import { listIssue } from '../../apis';
+import { typeOf } from '../../utils/typeOf';
 const state = {
 	origin: [],
 	list: [],
@@ -42,23 +43,16 @@ const actions = {
 			// console.log(ignore_id);
 			let list = res.filter((v) => !ignore_id.includes(v.id));
 			list = list.map((v) => {
-				let config = v.description.split(';');
-				config = config.reduce((total, value) => {
-					if (value == '') {
-						return total;
-					}
-					let spt = value.split('=');
-					total[spt[0]] = spt[1];
-					return total;
-				}, {});
-				console.log(v.name.split('>>'));
+				let options = {};
+				if (v['description'] && isJSONString(v['description'])) {
+					options = JSON.parse(v['description']);
+				}
 				return {
 					...v,
-					...config,
+					...options,
 				};
 			});
 			commit('SET_ORIGIN', list);
-			console.log(list);
 			Promise.all(
 				list.map(
 					(v) =>
@@ -66,13 +60,31 @@ const actions = {
 							listIssue(v.name).then((res) => {
 								resolve({
 									...v,
-									issues: res.map((v) => {
-										return {
-											node_id: v.node_id,
-											title: v.title,
-											...iniToJSON(v.body),
-										};
-									}),
+									issues: res.reduce((t, v) => {
+										let iniJSON = iniToJSON(v.body);
+										let issues = Object.keys(iniJSON).reduce((total, key) => {
+											if (typeOf(iniJSON[key]) != 'string') {
+												total.push({
+													node_id: v.node_id,
+													title: v.title,
+													...iniJSON[key],
+												});
+											}
+											return total;
+										}, []);
+										if (issues.length == 0) {
+											t.push({
+												node_id: v.node_id,
+												title: v.title,
+												...iniToJSON(v.body),
+											});
+										} else {
+											t = t.concat(issues);
+											// return issues;
+										}
+
+										return t;
+									}, []),
 								});
 							});
 						})

@@ -1,19 +1,12 @@
 <template>
-	<div class="app-container">
-		<h3 style="text-align:center;">Awesome</h3>
-		<el-menu
-			default-active="2"
-			class="el-menu-vertical-demo"
-			@open="handleOpen"
-			@close="handleClose"
-			background-color="#545c64"
-			text-color="#fff"
-			active-text-color="#ffd04b"
-			:router="true"
-		>
-			<SidebarItem :tree="labels_tree" />
-		</el-menu>
-	</div>
+	<el-aside class="app-aside" width="220px">
+		<p class="aside-title" style="">Awesome</p>
+		<el-scrollbar>
+			<el-menu class="aside-menu" default-active="2" background-color="#2c2e2f" text-color="#fff" active-text-color="#ffd04b" :router="true">
+				<SidebarItem :tree="labels_tree" />
+			</el-menu>
+		</el-scrollbar>
+	</el-aside>
 </template>
 
 <script>
@@ -42,6 +35,7 @@
 
 <style scoped>
 	.el-menu {
-		min-height: calc(100vh - 60px);
+		height: calc(100vh - 60px);
+		border-right: 0;
 	}
 </style>

@@ -1,16 +1,18 @@
 <template>
 	<el-container>
-		<el-aside width="220px">
-			<Sidebar />
-		</el-aside>
+		<Sidebar />
 		<el-container>
-			<el-header>Header</el-header>
-			<el-container style="min-height:calc(100vh - 60px);">
-				<el-main>
-					<slot></slot>
-				</el-main>
-				<el-footer>Footer</el-footer>
-			</el-container>
+			<el-header class="app-header">
+				<i class="el-icon-s-fold" style="font-size:38px;line-height:60px"></i>
+			</el-header>
+			<el-scrollbar style="height:calc(100vh - 60px);">
+				<el-container style="min-height:calc(100vh - 60px);">
+					<el-main>
+						<slot class="el-main"></slot>
+					</el-main>
+					<el-footer class="app-footer">Footer</el-footer>
+				</el-container>
+			</el-scrollbar>
 		</el-container>
 	</el-container>
 </template>
@@ -28,31 +30,19 @@
 <style>
 	.el-header,
 	.el-footer {
-		background-color: #b3c0d1;
-		color: #333;
+		background-color: #ffffff;
+		color: #fff;
+		height: 60px;
 		line-height: 60px;
 	}
 
 	.el-aside {
-		background-color: #d3dce6;
+		background-color: #2c2e2f;
 		color: #333;
 	}
 
 	.el-main {
 		color: #333;
-		background-color: #2c3e50;
-	}
-
-	body > .el-container {
-		margin-bottom: 40px;
-	}
-
-	.el-container:nth-child(5) .el-aside,
-	.el-container:nth-child(6) .el-aside {
-		line-height: 260px;
-	}
-
-	.el-container:nth-child(7) .el-aside {
-		line-height: 320px;
+		background-color: #ffffff;
 	}
 </style>

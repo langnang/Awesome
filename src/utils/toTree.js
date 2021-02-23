@@ -71,5 +71,9 @@ const tree = (origin, depth, array = []) => {
 		return total;
 	}, []);
 	depth--;
-	return tree(origin, depth, result);
+	return tree(
+		origin,
+		depth,
+		result.sort((a, b) => (b.name + '').localeCompare(a.name + ''))
+	);
 };

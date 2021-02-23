@@ -1,3 +1,5 @@
+const path = require('path');
+const defaultSettings = require('./src/settings.js');
 module.exports = {
 	// 部署应用包时的基本 URL
 	publicPath: process.env.NODE_ENV === 'production' ? '/Awesome/' : '/',
@@ -21,6 +23,7 @@ module.exports = {
 				},
 			},
 		},
+		before: require('./mock/mock-server.js'),
 	},
 
 	chainWebpack: (config) => {
