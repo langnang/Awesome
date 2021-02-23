@@ -1,15 +1,20 @@
 <template>
 	<component :is="item.children ? 'el-submenu' : 'el-menu-item'" :index="item.name">
 		<template slot="title">
-			<i :class="item.icon" class="el-icon-collection-tag"></i>
+			<Icon :icon="item.icon || 'el-icon-collection-tag'" />
+			<!-- <i :class="item.icon" class="el-icon-collection-tag"></i> -->
 			<span slot="title">{{ item.label }}</span>
 		</template>
 		<SidebarItem v-for="subItem in item.children" :key="subItem.name" :item="subItem" />
 	</component>
 </template>
 <script>
+	import Icon from '@/components/Icon';
 	export default {
 		name: 'SidebarItem',
+		components: {
+			Icon,
+		},
 		props: {
 			item: {},
 			tree: {},

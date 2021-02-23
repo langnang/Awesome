@@ -17,7 +17,7 @@ export const mockIssue = Mock.mock({
 			title: () => Mock.Random.cname(),
 			body: () => {
 				const desc = Mock.Random.title();
-				const logo = Mock.Random.dataImage();
+				const logo = Mock.Random.image('50x50');
 				const link = Mock.Random.url();
 				return `
 				desc=${desc}

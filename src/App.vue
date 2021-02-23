@@ -5,6 +5,7 @@
 				<el-col :span="24" :id="label.name">
 					<el-link :underline="false" :href="'#' + label.name">
 						<el-breadcrumb separator=">>" style="display:inline-table;font-size:20px;padding:6px;background-color: white;border-radius: 999px;">
+							<Icon :icon="['fas', 'tags']" style="float:left;" />
 							<el-breadcrumb-item v-for="(i, index_bread) in label.name.split('>>')" :key="index + '-' + index_bread">{{ i }}</el-breadcrumb-item>
 						</el-breadcrumb>
 					</el-link>
@@ -14,7 +15,7 @@
 						<a :href="item.link" :underline="false" target="_blank" style="width:100%;text-decoration: none;">
 							<el-card :body-style="{ padding: '6px 12px', height: '62px', backgroundColor: '#ffe3de' }" shadow="hover">
 								<el-avatar :size="50" src="https://empty" @error="errorHandler" style="float:left;">
-									<el-image :src="item.logo" v-if="item.logo != ''" style="width:50px;height:50px;" />
+									<Icon :icon="item.logo" style="width:50px;height:50px;" />
 								</el-avatar>
 								<el-alert :title="item.title" type="info" :description="item.desc" style="width:calc(100% - 50px);padding:0;" :closable="false"> </el-alert>
 							</el-card>
@@ -23,18 +24,19 @@
 				</el-col>
 			</el-row>
 		</Layout>
-		<!-- <TreePanel :tree="labels" /> -->
 	</div>
 </template>
 
 <script>
 	import Layout from './layout/index.vue';
 	// import TreePanel from '@/components/TreePanel';
+	import Icon from '@/components/Icon';
 	import { mapGetters } from 'vuex';
 	export default {
 		name: 'app',
 		components: {
 			Layout,
+			Icon,
 			// TreePanel,
 		},
 		computed: {
