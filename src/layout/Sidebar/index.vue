@@ -25,6 +25,7 @@
 	import { mapGetters } from 'vuex';
 	import SidebarItem from './Item';
 	export default {
+		name: 'LayoutSidebar',
 		components: {
 			SidebarItem,
 		},
