@@ -1,8 +1,8 @@
 <template>
 	<component :is="item.children ? 'el-submenu' : 'el-menu-item'" :index="item.name">
-		<Icon :icon="item.icon || 'el-icon-collection-tag'" v-if="!item.children" />
+		<Icon :icon="item.icon || 'el-icon-collection-tag'" v-if="!item.children" style="height:18px;width:18px;margin-right:5px;" />
 		<template slot="title">
-			<Icon :icon="item.icon || 'el-icon-collection-tag'" v-if="item.children" />
+			<Icon :icon="item.icon || 'el-icon-collection-tag'" v-if="item.children" style="height:18px;width:18px;margin-right:5px;" />
 			<!-- <i :class="item.icon" class="el-icon-collection-tag"></i> -->
 			<span slot="title">{{ item.label }}</span>
 		</template>
