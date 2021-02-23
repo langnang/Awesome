@@ -1,6 +1,9 @@
 <template>
 	<el-aside class="app-aside" :width="isCollapse ? '70px' : '220px'">
-		<p class="aside-title" style="">Awesome</p>
+		<div class="aside-title" style="">
+			<el-avatar style="margin-top:10px;font-size:36px;">A</el-avatar>
+			<span v-if="!isCollapse" class="aside-title__title" style="vertical-align:top;margin-left:5px;">Awesome</span>
+		</div>
 		<el-scrollbar style="height:calc(100vh - 60px)">
 			<el-menu
 				class="aside-menu"
