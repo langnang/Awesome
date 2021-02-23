@@ -2,8 +2,8 @@
 	<div id="app">
 		<Layout>
 			<el-row :gutter="10" v-for="(label, index) in labels_list" :key="index" style="margin-left:5px;margin-right:5px;">
-				<el-col :span="24">
-					<el-link :underline="false" href="#">
+				<el-col :span="24" :id="label.name">
+					<el-link :underline="false" :href="'#' + label.name">
 						<el-breadcrumb separator=">>" style="display:inline-table;font-size:20px;padding:6px;background-color: white;border-radius: 999px;">
 							<el-breadcrumb-item v-for="(i, index_bread) in label.name.split('>>')" :key="index + '-' + index_bread">{{ i }}</el-breadcrumb-item>
 						</el-breadcrumb>

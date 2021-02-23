@@ -2,7 +2,16 @@
 	<el-aside class="app-aside" :width="isCollapse ? '70px' : '220px'">
 		<p class="aside-title" style="">Awesome</p>
 		<el-scrollbar>
-			<el-menu class="aside-menu" default-active="2" background-color="#2c2e2f" text-color="#fff" active-text-color="#ffd04b" :router="true" :collapse="isCollapse">
+			<el-menu
+				class="aside-menu"
+				default-active="2"
+				background-color="#2c2e2f"
+				text-color="#fff"
+				active-text-color="#ffd04b"
+				:collapse="isCollapse"
+				@open="handleOpen"
+				@select="handleSelect"
+			>
 				<SidebarItem v-for="item in labels_tree" :key="item.name" :item="item" />
 			</el-menu>
 		</el-scrollbar>
@@ -23,11 +32,14 @@
 			// this.$store.dispatch('label/getList');
 		},
 		methods: {
-			handleOpen(key, keyPath) {
-				console.log(key, keyPath);
+			handleOpen(key) {
+				window.location.hash = '#' + key;
 			},
 			handleClose(key, keyPath) {
 				console.log(key, keyPath);
+			},
+			handleSelect(key) {
+				window.location.hash = '#' + key;
 			},
 		},
 	};
