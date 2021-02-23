@@ -4,7 +4,7 @@ export const mockLabel = Mock.mock({
 	'list|30': [
 		{
 			node_id: () => Mock.Random.guid(),
-			name: () => Mock.Random.county(true).replace(/\s+/g, '>>'),
+			name: () => Mock.Random.province(true).replace(/\s+/g, '>>'),
 			description: '{"icon":"el-icon-eleme"}',
 		},
 	],
