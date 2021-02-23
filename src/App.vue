@@ -13,8 +13,8 @@
 				<el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="(item, index) in label.issues" :key="item.node_id + index" :style="{ margin: '10px 0' }">
 					<el-tooltip class="item" effect="dark" :content="item.link || 'https://'" placement="bottom">
 						<a :href="item.link" :underline="false" target="_blank" style="width:100%;text-decoration: none;">
-							<el-card :body-style="{ padding: '6px 12px', height: '62px', backgroundColor: '#ffe3de' }" shadow="hover">
-								<el-avatar :size="50" src="https://empty" @error="errorHandler" style="float:left;">
+							<el-card :body-style="{ padding: '6px 12px', height: '74px', backgroundColor: '#ffe3de' }" shadow="hover">
+								<el-avatar :size="50" src="https://empty" @error="errorHandler" style="float:left;margin-top:5px">
 									<Icon :icon="item.logo" style="width:50px;height:50px;" />
 								</el-avatar>
 								<el-alert :title="item.title" type="info" :description="item.desc" style="width:calc(100% - 50px);padding:0;" :closable="false"> </el-alert>
@@ -45,7 +45,7 @@
 		mounted() {
 			this.$store.dispatch('label/getList');
 			// this.$store.dispatch('issue/getList');
-			console.log(this);
+			// console.log(this);
 		},
 		methods: {
 			errorHandler() {
@@ -77,5 +77,11 @@
 	}
 	.el-alert__content {
 		padding-right: 0;
+	}
+	.el-alert__description {
+		/* margin-top: 0; */
+		/* max-height: 26px; */
+		max-height: 30px;
+		overflow: hidden;
 	}
 </style>

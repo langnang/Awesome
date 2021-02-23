@@ -27,7 +27,7 @@ const tree = (origin, depth, array = []) => {
 	}
 	// 过滤当前深度下的所有元素
 	let result = origin.filter((v) => v.depth == depth);
-	console.log(result);
+	// console.log(result);
 	result = result.sort((a, b) => (a.label + '').localeCompare(b.label + '', 'zh'));
 	// 根据过滤的元素生成父类，检测原型中是否存在该父类，存在就合并元素
 	result = result.reduce((total, value) => {

@@ -28,7 +28,7 @@ const getKeyValue = (str) => {
 		if (spt.length == 1) {
 			return total;
 		}
-		total[spt[0].replace(/(^\s*)|(\s*$)/g, '')] = spt[1].replace(/(^\s*)|(\s*$)/g, '');
+		total[spt[0].trim()] = spt[1].trim();
 		return total;
 	}, {});
 };

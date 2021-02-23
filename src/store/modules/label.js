@@ -26,11 +26,11 @@ const mutations = {
 		state.origin = origin;
 	},
 	SET_TREE: (state, tree) => {
-		console.log(tree);
+		// console.log(tree);
 		state.tree = tree;
 	},
 	SET_LIST: (state, list) => {
-		console.log(list);
+		// console.log(list);
 		state.list = list;
 	},
 };

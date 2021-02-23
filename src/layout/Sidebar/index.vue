@@ -1,7 +1,7 @@
 <template>
 	<el-aside class="app-aside" :width="isCollapse ? '70px' : '220px'">
 		<p class="aside-title" style="">Awesome</p>
-		<el-scrollbar>
+		<el-scrollbar style="height:calc(100vh - 60px)">
 			<el-menu
 				class="aside-menu"
 				default-active="2"

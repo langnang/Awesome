@@ -49,4 +49,7 @@
 		color: #333;
 		background-color: #ffffff;
 	}
+	.el-scrollbar__wrap {
+		overflow-x: hidden;
+	}
 </style>
