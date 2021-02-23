@@ -9,7 +9,7 @@
 						</el-breadcrumb>
 					</el-link>
 				</el-col>
-				<el-col :span="6" v-for="item in label.issues" :key="item.node_id" :style="{ margin: '10px 0' }">
+				<el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4" v-for="item in label.issues" :key="item.node_id" :style="{ margin: '10px 0' }">
 					<el-tooltip class="item" effect="dark" :content="item.link" placement="bottom">
 						<a :href="item.link" :underline="false" target="_blank" style="width:100%;text-decoration: none;">
 							<el-card :body-style="{ padding: '6px 12px' }" shadow="hover">

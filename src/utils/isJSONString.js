@@ -1,4 +1,4 @@
-import { typeOf } from '@bit/langnang.javascript.type-of';
+import { typeOf } from './typeOf';
 
 export const isJSONString = (str) => {
 	try {
