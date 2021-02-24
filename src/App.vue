@@ -13,7 +13,7 @@
 				<el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="(item, index) in label.issues" :key="item.node_id + index">
 					<el-tooltip class="item" effect="dark" :content="item.link || 'https://'" placement="bottom">
 						<a :href="item.link" :underline="false" target="_blank" style="width:100%;text-decoration: none;">
-							<el-card :body-style="{ padding: '6px 12px', height: '74px', backgroundColor: 'grey' }" shadow="hover">
+							<el-card :body-style="{ padding: '6px 12px', height: '74px' }" shadow="hover">
 								<el-avatar :size="50" src="https://empty" @error="errorHandler" style="float:left;margin-top:5px">
 									<Icon :icon="item.logo" style="width:50px;height:50px;" />
 								</el-avatar>
@@ -38,6 +38,9 @@
 			Layout,
 			Icon,
 			// TreePanel,
+		},
+		data() {
+			return {};
 		},
 		computed: {
 			...mapGetters(['issues', 'labels_list']),
@@ -85,7 +88,7 @@
 		overflow: hidden;
 	}
 	.el-row {
-		background-color: #433333;
+		/* background-color: #433333; */
 		border-radius: 4px;
 	}
 	.el-row + .el-row {
@@ -101,7 +104,7 @@
 		display: inline-table;
 		font-size: 20px;
 		padding: 6px;
-		background-color: grey;
+		/* background-color: grey; */
 		border-radius: 4px;
 		width: 100%;
 	}

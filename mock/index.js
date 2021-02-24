@@ -21,7 +21,7 @@ export const mockLabel = Mock.mock({
 }).list;
 
 export const mockIssue = Mock.mock({
-	'list|10': [
+	'list|5': [
 		{
 			node_id: () => Mock.Random.guid(),
 			title: () => Mock.Random.cname(),

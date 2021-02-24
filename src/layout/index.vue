@@ -3,11 +3,7 @@
 		<Sidebar />
 		<el-container class="app-container">
 			<el-header class="app-header">
-				<i
-					:class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
-					style="font-size:38px;line-height:60px;filter: invert(100%);"
-					@click="$store.dispatch('app/toggleSidebar')"
-				></i>
+				<i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'" style="font-size:38px;line-height:60px;" @click="$store.dispatch('app/toggleSidebar')"></i>
 				<el-form :inline="true" style="float:right;margin-top:10px">
 					<el-form-item>
 						<el-button icon="el-icon-setting" circle size="small"></el-button>
@@ -49,8 +45,8 @@
 <style>
 	.el-header,
 	.el-footer {
-		background-color: #433333;
-		color: #fff;
+		/* background-color: #433333; */
+		/* color: #fff; */
 		height: 60px;
 		line-height: 60px;
 	}
@@ -62,7 +58,7 @@
 
 	.el-main {
 		color: #333;
-		background-color: #261f1f;
+		/* background-color: #261f1f; */
 	}
 	.el-scrollbar__wrap {
 		overflow-x: hidden;
