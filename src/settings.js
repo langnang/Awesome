@@ -1,5 +1,5 @@
-let storage = window.localStorage.getItem('Awesome');
-storage = JSON.parse(storage);
+// let storage = window.localStorage.getItem('Awesome');
+// storage = JSON.parse(storage);
 
 module.exports = {
 	title: 'awesome',
@@ -15,5 +15,5 @@ module.exports = {
 	ignoreLabels: [],
 	labels: [],
 	issues: [],
-	...storage,
+	// ...storage,
 };
